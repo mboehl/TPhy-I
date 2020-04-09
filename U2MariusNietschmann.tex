@@ -71,12 +71,13 @@
 \newcommand{\ord}{\mathrm{ord}\,}
 \newcommand{\sgn}{\mathrm{sgn}\,}
 \newcommand{\id}{\mathrm{id}}
-%\newcommand{\div}{\operatorname{div}}
+\renewcommand{\div}{\operatorname{div}}
 \newcommand{\rot}{\operatorname{rot}}
+
 
 % fancy head/foot
 \usepackage{fancyhdr}
-\fancyhead[R]{M. Nietschmann, M. Böhl}
+\fancyhead[R]{A. Kanz, R. Müller, M. Nietschmann, M. Böhl}
 \fancyhead[L]{}
 
 \begin{document}
@@ -85,7 +86,7 @@
 
 \rule{\textwidth}{.5pt}
 \begin{center}
-\Huge{Theoretische Physik - Übungsblatt 2}
+\Huge{Theoretische Physik I - Übungsblatt 2}
 \end{center}
 
 \rule{\textwidth}{.5pt}
@@ -97,13 +98,8 @@
 
 
 \section{Kurvenintegral bei Scherströmung}
-Gegeben ist das Vektorfeld $v(r) = (0, x, 0)$ für $r = (x,y,z) \in \R^3$. Sei nun $k \in (0, \infty)$ und $Q(k) = \{ (x,y,0) \in \R^3 \mid \max \{ x,y \} \leq \frac{k}{2} \}$ das Quadrat mit Seitenlänge $k$ und dem Koordinatenursprung als Mittelpunkt. Um den den Rand des Quadrats zu parametrisieren, definieren wir zunächst $\gamma_i : [0,1] \longto \R^3$ durch
-\begin{align*}
-\gamma_1 (t) &= (1, 2t-1, 0)\\
-\gamma_2 (t) &= (1-2t, 1, 0)\\
-\gamma_3 (t) &= (-1, 1-2t, 0)\\
-\gamma_4 (t) &= (2t-1, -1, 0).
-\end{align*}
+Gegeben ist das Vektorfeld $v(r) = (0, x, 0)$ für $r = (x,y,z) \in \R^3$. Seien nun $k \in (0, \infty)$ und $Q(k) = \{ (x,y,0) \in \R^3 \mid \max \{ |x|,|y| \} \leq \frac{k}{2} \}$ das Quadrat mit Seitenlänge $k$ und dem Koordinatenursprung als Mittelpunkt. Um den den Rand des Quadrats zu parametrisieren, definieren wir zunächst $\gamma_i : [0,1] \longto \R^3$ für $i \in \{1,\dots, 4\}$ durch
+\[ \gamma_1 (t) = (1, 2t-1, 0), \quad \gamma_2 (t) = (1-2t, 1, 0), \quad \gamma_3 (t) = (-1, 1-2t, 0), \quad \gamma_4 (t) = (2t-1, -1, 0). \]
 
 Dann parametrisiert
 \[ \gamma_k: [0,4] \longto \R^3,\; t \longmapsto \begin{cases}
@@ -132,8 +128,27 @@ Gegeben ist das Vektorfelt $v(r) = (-y, x, 0)$ für $r = (x,y,z) \in \R^3$. Sei 
 und $\rot v(r) = (0,0,2)$.
 
 
+\section{Linienintegral}
+Gegeben ist das Vektorfeld $f(x,y,z) = xyz(1,1,1)$. Wir berechnen nun das Integral $\int_\gamma f(r) dr$ für verschiedene Kurven $\gamma$.
+\begin{enumerate}[label = \alph*)]
+\item Definiere zunächst $\gamma_i : [0,1] \longto \R^3$ für $i \in \{1,\dots, 3\}$ durch
+\[ \gamma_1(t) = (t,0,0), \qquad \gamma_2(t) = (1,t,0), \qquad \gamma_3(t) = (1,1,t). \]
+Sei nun 
+\[ \gamma : [0,3) \longto \R^3, \; t \longmapsto \gamma_i(t) \text{ falls } t \in [i-1, i) \text{ für } i \in \{1,2,3\}. \]
+Dann gilt
+\begin{align*}
+\int_\gamma f(r) \cdot dr &= \int_0^1 (0,0,0) \cdot \dot\gamma_1(t) dt + \int_0^1 (0,0,0) \cdot \dot\gamma_2(t) dt + \int_0^1 t(1,1,1) \cdot (0,0,1) dt \\
+&= \int_0^1 t dt = \frac{1}{2} t \Big\vert_0^1 = \frac{3}{4}.
+\end{align*}
 
+\item Sei $\gamma : [0,1] \longto \R^3, \; t \longmapsto (t,t,t)$. Dann
+\[\int_\gamma f(r) \cdot dr = \int_0^1 t^3(1,1,1)\cdot (1,1,1) dt = \int_0^1 3t^3 dt = \frac{3}{4} t^4 \Big\vert_0^1 = \frac{3}{4}. \]
 
+\item Sei $\gamma : [0,1] \longto \R^3, \; t \longmapsto (t^2, t^3, t^4)$. Dann
+\[ \int_\gamma f(r) \cdot dr = \int_0^1 t^9(1,1,1)\cdot (2t, 3t^2, 4t^3) dt = \int_0^1 2t^{10} + 3t^{11} + 4t^{12} dt = \frac{2}{11} + \frac{3}{12} + \frac{4}{13} = \frac{423}{572}. \]
+\end{enumerate}
+
+Außerdem gilt $\rot f(x,y,z) = \begin{pmatrix} xz - xy \\ xy - yz \\ yz - xz \end{pmatrix}$.
 
 
 \end{document}
