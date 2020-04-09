@@ -1,0 +1,131 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+
+%% margins
+\usepackage{geometry}
+\geometry{
+  left=2.5cm,
+  right=2.5cm,
+  top=2.5cm,
+  bottom=2.5cm
+}
+
+%% ams/thm
+\usepackage{amsmath, amssymb, amsthm, mathtools, cancel}
+
+%%\begin{thm config/technicalities}
+\theoremstyle{plain}
+\newtheorem{thm}{Satz}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Korollar}
+\newtheorem*{beh}{Behauptung}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{exmp}[thm]{Beispiel}
+\newtheorem{rem}[thm]{Bemerkung}
+
+%% paragraph spacing/indentation
+\usepackage{parskip}
+\usepackage{setspace}
+\setlength{\parindent}{0cm}
+
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=\parskip \thm@postskip=0pt
+}
+\makeatother
+%\end{}
+
+%% plotting
+%\usepackage{pgfplots}
+%\usepackage{tikz}
+
+\usepackage{enumitem}
+%\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+
+%% lightning
+\usepackage{marvosym}
+
+%% sans-serif font
+%\renewcommand{\familydefault}{\sfdefault}
+
+% shortcuts
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+
+\newcommand{\D}{\displaystyle}
+
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ph}{\varphi}
+\newcommand{\longto}{\longrightarrow}
+\newcommand{\kgV}{\mathrm{kgV}}
+\newcommand{\ggT}{\mathrm{ggT}}
+\newcommand{\ord}{\mathrm{ord}\,}
+\newcommand{\sgn}{\mathrm{sgn}\,}
+\newcommand{\id}{\mathrm{id}}
+%\newcommand{\div}{\operatorname{div}}
+\newcommand{\rot}{\operatorname{rot}}
+
+% fancy head/foot
+\usepackage{fancyhdr}
+\fancyhead[R]{M. Nietschmann, M. Böhl}
+\fancyhead[L]{}
+
+\begin{document}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\rule{\textwidth}{.5pt}
+\begin{center}
+\Huge{Theoretische Physik - Übungsblatt 2}
+\end{center}
+
+\rule{\textwidth}{.5pt}
+\text{} \hfill A. Kanz, R. Müller, M. Nietschmann, M. Böhl
+
+
+
+\section{Flussintegral bei radialer Strömung}
+
+
+\section{Kurvenintegral bei Scherströmung}
+Gegeben ist das Vektorfeld $v(r) = (0, x, 0)$ für $r = (x,y,z) \in \R^3$. Sei nun $k \in (0, \infty)$ und $Q(k) = \{ (x,y,0) \in \R^3 \mid \max \{ x,y \} \leq \frac{k}{2} \}$ das Quadrat mit Seitenlänge $k$ und dem Koordinatenursprung als Mittelpunkt. Um den den Rand des Quadrats zu parametrisieren, definieren wir zunächst $\gamma_i : [0,1] \longto \R^3$ durch
+\begin{align*}
+\gamma_1 (t) &= (1, 2t-1, 0)\\
+\gamma_2 (t) &= (1-2t, 1, 0)\\
+\gamma_3 (t) &= (-1, 1-2t, 0)\\
+\gamma_4 (t) &= (2t-1, -1, 0).
+\end{align*}
+
+Dann parametrisiert
+\[ \gamma_k: [0,4] \longto \R^3,\; t \longmapsto \begin{cases}
+\tfrac{k}{2}\gamma_1(t) &, t \in [0,1)\\
+\tfrac{k}{2}\gamma_2(t-1) &, t \in [1,2)\\
+\tfrac{k}{2}\gamma_3(t-2) &, t \in [2,3)\\
+\tfrac{k}{2}\gamma_4(t-3) &, t \in [3,4]
+\end{cases} \]
+
+den Rand des Quadrates $Q(k)$. Nun können wir das Kurvenintegral berechnen:
+\begin{align*}
+\oint_{\gamma_k} v(r)\cdot dr &= \int_0^4 \langle v(\gamma_k(t)), \dot \gamma_k (t) \rangle dt \\
+&= \frac{k^2}{4} \left( \int_0^1 \langle (0,1,0), (0,2,0) \rangle dt + \int_0^1 \langle (0, 1-2t, 0), (-2,0,0) \rangle dt \right.\\
+&\quad \left. + \int_0^1 \langle (0,-1,0), (0,-2,0) \rangle dt + \int_0^1 \langle (0, 2t-1, 0), (2,0,0) \rangle dt \right)\\
+&= 2\cdot\frac{k^2}{4} \int_0^1 2 dt = k^2.
+\end{align*}
+
+Die Rotation berechnet sich als $\rot v(r) = (0,0,1)$.
+
+
+
+
+
+
+\end{document}
