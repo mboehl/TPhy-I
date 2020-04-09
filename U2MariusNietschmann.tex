@@ -124,6 +124,14 @@ den Rand des Quadrates $Q(k)$. Nun können wir das Kurvenintegral berechnen:
 Die Rotation berechnet sich als $\rot v(r) = (0,0,1)$.
 
 
+\section{Kurvenintegral eines azimutalen Geschwindigkeitsfeldes}
+Gegeben ist das Vektorfelt $v(r) = (-y, x, 0)$ für $r = (x,y,z) \in \R^3$. Sei $R \in (0, \infty)$ und $K(R)$ der konzentrische Kreis mit Radius $R$ in der Ebene $z = 0$. Der Rand von $K(R)$ wird von der Kurve
+\[ \gamma_R : [0, 2\pi) \longto \R^3, \; \ph \longmapsto R (\cos\ph, \sin\ph, 0) \]
+``gegen den Urzeigersinn umfahren''. Es gilt
+\[ \oint_{\gamma_R} v(r) \cdot dr = R^2 \int_0^{2\pi} (-\sin\ph, \cos\ph, 0) \cdot (-\sin\ph, \cos\ph, 0) d\ph = R^2 \int_0^{2\pi} \sin^2 \ph + \cos^2 \ph d\ph = 2\pi R^2 \]
+und $\rot v(r) = (0,0,2)$.
+
+
 
 
 
