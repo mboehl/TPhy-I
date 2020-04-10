@@ -111,9 +111,9 @@ Dann parametrisiert
 
 den Rand des Quadrates $Q(k)$. Nun können wir das Kurvenintegral berechnen:
 \begin{align*}
-\oint_{\gamma_k} v(r)\cdot dr &= \int_0^4 \langle v(\gamma_k(t)), \dot \gamma_k (t) \rangle dt \\
-&= \frac{k^2}{4} \left( \int_0^1 \langle (0,1,0), (0,2,0) \rangle dt + \int_0^1 \langle (0, 1-2t, 0), (-2,0,0) \rangle dt \right.\\
-&\quad \left. + \int_0^1 \langle (0,-1,0), (0,-2,0) \rangle dt + \int_0^1 \langle (0, 2t-1, 0), (2,0,0) \rangle dt \right)\\
+\oint_{\gamma_k} v(r)\cdot dr &= \int_0^4 v(\gamma_k(t)) \cdot \dot \gamma_k (t) dt \\
+&= \frac{k^2}{4} \left( \int_0^1 (0,1,0) \cdot (0,2,0) dt + \int_0^1 (0, 1-2t, 0) \cdot (-2,0,0) dt \right.\\
+&\quad \left. + \int_0^1 (0,-1,0) \cdot (0,-2,0) dt + \int_0^1 (0, 2t-1, 0) \cdot (2,0,0) dt \right)\\
 &= 2\cdot\frac{k^2}{4} \int_0^1 2 dt = k^2.
 \end{align*}
 
