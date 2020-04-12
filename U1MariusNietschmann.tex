@@ -1,0 +1,187 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+
+%% margins
+\usepackage{geometry}
+\geometry{
+  left=2.5cm,
+  right=2.5cm,
+  top=2.5cm,
+  bottom=2.5cm
+}
+
+%% ams/thm
+\usepackage{amsmath, amssymb, amsthm, mathtools, cancel, graphicx, wrapfig}
+
+%%\begin{thm config/technicalities}
+\theoremstyle{plain}
+\newtheorem{thm}{Satz}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Korollar}
+\newtheorem*{beh}{Behauptung}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{exmp}[thm]{Beispiel}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Bemerkung}
+
+\usepackage{thmtools}
+
+\declaretheoremstyle[%
+  spaceabove=1.5ex,%
+  spacebelow=6pt,%
+  headfont=\normalfont\itshape,%
+  postheadspace=1em,%
+  qed=\qedsymbol%
+]{mystyle} 
+\declaretheorem[name={Beweis},style=mystyle,unnumbered,
+]{prf}
+
+\renewcommand{\proof}{\prf}
+
+%% paragraph spacing/indentation
+\usepackage{parskip}
+\usepackage{setspace}
+\setlength{\parindent}{0cm}
+
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=\parskip \thm@postskip=0pt
+}
+\makeatother
+%\end{}
+
+%% plotting
+%\usepackage{pgfplots}
+%\usepackage{tikz}
+
+\usepackage{enumitem}
+%\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+
+%% lightning
+\usepackage{marvosym}
+
+%% widecheck 
+%\usepackage{mathabx}
+
+%% sans-serif font
+%\renewcommand{\familydefault}{\sfdefault}
+
+% shortcuts
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Sn}{\mathbb{S}_n}
+\renewcommand{\S}{\mathcal{S}}
+
+\newcommand{\D}{\displaystyle}
+
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ph}{\varphi}
+\newcommand{\longto}{\longrightarrow}
+\DeclareMathOperator{\kgV}{\mathrm{kgV}}
+\DeclareMathOperator{\ggT}{\mathrm{ggT}}
+\DeclareMathOperator{\ord}{\mathrm{ord}\,}
+\DeclareMathOperator{\sgn}{\mathrm{sgn}\,}
+\newcommand{\id}{\mathrm{id}}
+
+\DeclareMathOperator{\Fou}{\mathcal{F}\!}
+
+% fancy head/foot
+\usepackage{fancyhdr}
+\fancyhead[R]{M. Nietschmann}
+\fancyhead[L]{}
+
+
+\begin{document}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\rule{\textwidth}{.5pt}
+\begin{center}
+\Huge{Theoretische Physik - Übungsblatt 1}
+\end{center}
+
+\rule{\textwidth}{.5pt}
+\text{} \hfill M. Nietschmann 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%							 %%
+%%   !!!Hier geht's los!!!   %%
+%%							 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Kurven und Flächen im $ \R^3 $} 
+
+Es sind $ \vec{x},\vec{r} \in \R^3 $. 
+\begin{itemize}
+\item[a)] 
+$ | \vec{x} | = 1 $ beschreibt die Einheitssphäre des $ \R^3 $. 
+\item[b)] 
+$ | \vec{x} - \vec{x}_0 | = R $ mit festem $ R > 0 $ sowie $ \vec{x}_0 \in \R^3 $ beschreibt eine Sphäre des Radius $ R $ mit Mittelpunkt $ \vec{x}_0 $. 
+\item[c)] 
+Die Gleichung $ \vec{x} \cdot \vec{e} = 0 $ mit festem $ \vec{e} \in \R^3 $ 
+wird von allen Vektoren des orthogonalen Komplementes des Erzeugnisses von $ \vec{e} $ erfüllt, d.h. $ \vec{x} \in \operatorname{span} \{ \vec{e} \}^\perp $. 
+Das sind alle Vektoren des $ \R^3 $, falls $ \vec{e} $ der Nullvektor ist, andernfalls liegen alle diese Vektoren in einer Hyperebene, in diesem (dreidimensionalen) Falle ist dies eine Ebene durch den Koordinatenursprung mit $ \vec{e} $ als Normalenvektor. 
+\item[d)] 
+
+\item[e)] 
+
+\item[f)] 
+
+\item[g)] 
+Hier wird eine obere Halbsphäre mit Radius $ R $ parametrisiert. 
+\end{itemize}
+
+
+\section{Gradient in krummlinigen Koordinaten}
+
+\begin{itemize}
+\item[a)] 
+$ \D \nabla \phi_P (r) = -\frac{1}{r^2} $ falls $ r \neq 0 $. Für $ r=0 $ ist $ \phi_P $ nicht differenzierbar. 
+\item[b)] 
+$ \D \nabla \phi_D (r,\vartheta) = \left( -2 \frac{\cos \vartheta}{r^3} , - \frac{\sin \vartheta}{r^2} \right) = -r^{-3} (2\cos \vartheta,r\sin\vartheta) $ falls $ r \neq 0 $. Für $ r=0 $ ist $ \phi_D $ nicht differenzierbar. 
+\end{itemize}
+
+
+\section{Divergenz}
+
+\begin{itemize}
+\item[a)] 
+$ \operatorname{div} \vec{F} 
+= \operatorname{div} 
+	\begin{pmatrix} Kxyz \\ Kxyz \\ Kxyz \end{pmatrix} 
+= K ( yz + xz + xy ). $ 
+\item[b)] 
+Wegen $ \vec{\omega} = \begin{pmatrix} 0 \\ 0 \\ \omega \end{pmatrix} $, 
+$ \omega \in \R $, ist in Zylinderkoordinaten $ \vec{v} (\vec{r}) = \vec v (r,\ph,z)
+= \begin{pmatrix} 0 \\ 0 \\ \omega \end{pmatrix} \times \vec{r} 
+= \begin{pmatrix} - \omega \ph \\ \omega r \\ 0 \end{pmatrix} $, also 
+$ \operatorname{div} \vec v 
+= \frac{1}{r} (- \omega \ph) +0 = - \frac{\omega \ph}{r}. $ 
+\item[c)] 
+$ \operatorname{div} \vec{v} (x,y,z) 
+= \operatorname{div} \sqrt{x^2+y^2+z^2} \vec{a} 
+= \frac{x+y+z}{\sqrt{x^2+y^2+z^2}} \vec{a} 
+= \frac{x+y+z}{r} \vec{a}. $ 
+\item[d)] 
+Nach Graßmann: $ \vec a \times (\vec b \times \vec r) = (\vec a \cdot \vec r) \vec b - (\vec a \cdot \vec b) \vec r $. 
+Also $ \operatorname{div} \vec{v} 
+= \vec a \cdot \vec b - (\vec a \cdot \vec b) \operatorname{div} r = -2 (\vec a \cdot \vec b). $ 
+\item[e)]  
+
+\end{itemize}
+
+
+
+\end{document}
