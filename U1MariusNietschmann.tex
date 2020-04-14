@@ -92,12 +92,14 @@
 \DeclareMathOperator{\ord}{\mathrm{ord}\,}
 \DeclareMathOperator{\sgn}{\mathrm{sgn}\,}
 \newcommand{\id}{\mathrm{id}}
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\rot}{\operatorname{rot}}
 
 \DeclareMathOperator{\Fou}{\mathcal{F}\!}
 
 % fancy head/foot
 \usepackage{fancyhdr}
-\fancyhead[R]{M. Nietschmann}
+\fancyhead[R]{M. Böhl, A. Kanz, R. Müller, M. Nietschmann, M. Noatsch}
 \fancyhead[L]{}
 
 
@@ -107,11 +109,11 @@
 
 \rule{\textwidth}{.5pt}
 \begin{center}
-\Huge{Theoretische Physik - Übungsblatt 1}
+\Huge{Theoretische Physik I - Übungsblatt 1}
 \end{center}
 
 \rule{\textwidth}{.5pt}
-\text{} \hfill M. Nietschmann 
+\text{} \hfill M. Böhl, A. Kanz, R. Müller, M. Nietschmann, M. Noatsch
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -134,9 +136,9 @@ Die Gleichung $ \vec{x} \cdot \vec{e} = 0 $ mit festem $ \vec{e} \in \R^3 $
 wird von allen Vektoren des orthogonalen Komplementes des Erzeugnisses von $ \vec{e} $ erfüllt, d.h. $ \vec{x} \in \operatorname{span} \{ \vec{e} \}^\perp $. 
 Das sind alle Vektoren des $ \R^3 $, falls $ \vec{e} $ der Nullvektor ist, andernfalls liegen alle diese Vektoren in einer Hyperebene, in diesem (dreidimensionalen) Falle ist dies eine Ebene durch den Koordinatenursprung mit $ \vec{e} $ als Normalenvektor. 
 \item[d)] 
-
+Die Gleichung $ \vec r \cdot \vec k = | \vec k | $, $ \vec k \in\R^3 $, wird von allen $ \vec r \in \vec k + \operatorname{span} \{ \vec k \}^\perp $, d.h. einer Ebene durch $ \vec k $ orthogonal zu $ \vec k $, falls $ \vec k $ vom Nullvektor verschieden ist, bzw. der gesamte $ \R^3 $, falls $ \vec k = (0,0,0) $, erfüllt. 
 \item[e)] 
-
+Es seien $ \vec a, \vec b \in \R^3 $. Falls $ \vec a = (0,0,0) $, so wird $ \vec x \times \vec a = \vec b \times \vec a $ von jedem $ \vec x \in \R^3 $ erfüllt; falls $ \vec b = (0,0,0) \neq \vec a $, nur von $ \vec x = (0,0,0) $. Sind $ \vec a, \vec b $ vom Nullvektor verschieden, so wird die Gleichung von allen $ \vec x $ in einem Halbkreis mit Radius $ |\vec b| $ in der von $ \vec a $ und $ \vec b $ aufgespannten Ebene durch den Ursprung erfüllt, wobei dieser in "$ \vec b $-Richtung von $ \vec a $ ausgerichtet sei". 
 \item[f)] 
 
 \item[g)] 
@@ -158,8 +160,8 @@ $ \D \nabla \phi_D (r,\vartheta) = \left( -2 \frac{\cos \vartheta}{r^3} , - \fra
 
 \begin{itemize}
 \item[a)] 
-$ \operatorname{div} \vec{F} 
-= \operatorname{div} 
+$ \div \vec{F} 
+= \div 
 	\begin{pmatrix} Kxyz \\ Kxyz \\ Kxyz \end{pmatrix} 
 = K ( yz + xz + xy ). $ 
 \item[b)] 
@@ -167,17 +169,17 @@ Wegen $ \vec{\omega} = \begin{pmatrix} 0 \\ 0 \\ \omega \end{pmatrix} $,
 $ \omega \in \R $, ist in Zylinderkoordinaten $ \vec{v} (\vec{r}) = \vec v (r,\ph,z)
 = \begin{pmatrix} 0 \\ 0 \\ \omega \end{pmatrix} \times \vec{r} 
 = \begin{pmatrix} - \omega \ph \\ \omega r \\ 0 \end{pmatrix} $, also 
-$ \operatorname{div} \vec v 
+$ \div \vec v 
 = \frac{1}{r} (- \omega \ph) +0 = - \frac{\omega \ph}{r}. $ 
 \item[c)] 
-$ \operatorname{div} \vec{v} (x,y,z) 
-= \operatorname{div} \sqrt{x^2+y^2+z^2} \vec{a} 
+$ \div \vec{v} (x,y,z) 
+= \div \sqrt{x^2+y^2+z^2} \vec{a} 
 = \frac{x+y+z}{\sqrt{x^2+y^2+z^2}} \vec{a} 
 = \frac{x+y+z}{r} \vec{a}. $ 
 \item[d)] 
 Nach Graßmann: $ \vec a \times (\vec b \times \vec r) = (\vec a \cdot \vec r) \vec b - (\vec a \cdot \vec b) \vec r $. 
-Also $ \operatorname{div} \vec{v} 
-= \vec a \cdot \vec b - (\vec a \cdot \vec b) \operatorname{div} r = -2 (\vec a \cdot \vec b). $ 
+Also $ \div \vec{v} 
+= \vec a \cdot \vec b - (\vec a \cdot \vec b) \div r = -2 (\vec a \cdot \vec b). $ 
 \item[e)]  
 
 \end{itemize}
