@@ -13,7 +13,7 @@
 }
 
 %% ams/thm
-\usepackage{amsmath, amssymb, amsthm, mathtools, cancel}
+\usepackage{amsmath, amssymb, amsthm, mathtools, cancel, graphicx, wrapfig}
 
 %%\begin{thm config/technicalities}
 \theoremstyle{plain}
@@ -26,7 +26,23 @@
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition}
 \newtheorem{exmp}[thm]{Beispiel}
-\newtheorem{rem}[thm]{Bemerkung}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Bemerkung}
+
+\usepackage{thmtools}
+
+\declaretheoremstyle[%
+  spaceabove=1.5ex,%
+  spacebelow=6pt,%
+  headfont=\normalfont\itshape,%
+  postheadspace=1em,%
+  qed=\qedsymbol%
+]{mystyle} 
+\declaretheorem[name={Beweis},style=mystyle,unnumbered,
+]{prf}
+
+\renewcommand{\proof}{\prf}
 
 %% paragraph spacing/indentation
 \usepackage{parskip}
@@ -50,6 +66,9 @@
 %% lightning
 \usepackage{marvosym}
 
+%% widecheck 
+%\usepackage{mathabx}
+
 %% sans-serif font
 %\renewcommand{\familydefault}{\sfdefault}
 
@@ -60,25 +79,29 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\K}{\mathbb{K}}
+\newcommand{\Sn}{\mathbb{S}_n}
+\renewcommand{\S}{\mathcal{S}}
 
 \newcommand{\D}{\displaystyle}
 
 \newcommand{\ep}{\varepsilon}
 \newcommand{\ph}{\varphi}
 \newcommand{\longto}{\longrightarrow}
-\newcommand{\kgV}{\mathrm{kgV}}
-\newcommand{\ggT}{\mathrm{ggT}}
-\newcommand{\ord}{\mathrm{ord}\,}
-\newcommand{\sgn}{\mathrm{sgn}\,}
+\DeclareMathOperator{\kgV}{\mathrm{kgV}}
+\DeclareMathOperator{\ggT}{\mathrm{ggT}}
+\DeclareMathOperator{\ord}{\mathrm{ord}\,}
+\DeclareMathOperator{\sgn}{\mathrm{sgn}\,}
 \newcommand{\id}{\mathrm{id}}
 \renewcommand{\div}{\operatorname{div}}
 \newcommand{\rot}{\operatorname{rot}}
 
+\DeclareMathOperator{\Fou}{\mathcal{F}\!}
 
 % fancy head/foot
 \usepackage{fancyhdr}
-\fancyhead[R]{A. Kanz, R. Müller, M. Nietschmann, M. Böhl}
+\fancyhead[R]{M. Böhl, A. Kanz, R. Müller, M. Nietschmann, M. Noatsch}
 \fancyhead[L]{}
+
 
 \begin{document}
 \pagestyle{fancy}
@@ -90,8 +113,14 @@
 \end{center}
 
 \rule{\textwidth}{.5pt}
-\text{} \hfill A. Kanz, R. Müller, M. Nietschmann, M. Böhl
+\text{} \hfill M. Böhl, A. Kanz, R. Müller, M. Nietschmann, M. Noatsch
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%							 %%
+%%   !!!Hier geht's los!!!   %%
+%%							 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Flussintegral bei radialer Strömung}
