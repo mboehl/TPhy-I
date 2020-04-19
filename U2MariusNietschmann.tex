@@ -57,8 +57,8 @@
 %\end{}
 
 %% plotting
-%\usepackage{pgfplots}
-%\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{tikz}
 
 \usepackage{enumitem}
 %\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
@@ -117,13 +117,29 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%							 %%
+%%									  %%
 %%   !!!Hier geht's los!!!   %%
-%%							 %%
+%%									  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Flussintegral bei radialer Strömung}
+
+\begin{tikzpicture}
+\begin{axis}[
+	domain = -3:3,
+	xmin = -2, xmax = 2,
+	ymin = -2, ymax = 2,
+	axis equal,
+	%xlabel = $x$, ylabel = $y$,
+	view = {0}{90},
+]
+	\addplot3[black,
+		quiver = {u={x/(x*x+y*y)}, v={y/(x*x+y*y)}, scale arrows = 0.2},
+		-stealth, samples=20] {0};
+		
+\end{axis}
+\end{tikzpicture}
 
 
 \section{Kurvenintegral bei Scherströmung}
@@ -148,17 +164,74 @@ den Rand des Quadrates $Q(k)$. Nun können wir das Kurvenintegral berechnen:
 
 Die Rotation berechnet sich als $\rot v(r) = (0,0,1)$.
 
+\begin{tikzpicture}
+\begin{axis}[
+	title={Scherströmung},
+	domain=-2:2,
+	xmin=-1.8, xmax=1.8,
+	ymax=2, ymin=-2,
+	%axis equal,
+	xtick={-1,0,1},
+	view={0}{90}
+]	
+	\addplot3[black,
+		quiver={
+			u={0},
+			v={x},
+			scale arrows=.4,
+		},
+		-stealth,samples=8]
+			{0};
+
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	title={Scherströmung 2?}
+]
+%	\addplot[gray,
+%		quiver={u=0, v=x},
+%		-stealth] {-x};
+	
+	\addplot[black,
+		quiver={u=0, v=x},
+		-stealth] {0};
+
+\end{axis}		
+\end{tikzpicture}
+
 
 \section{Kurvenintegral eines azimutalen Geschwindigkeitsfeldes}
-Gegeben ist das Vektorfelt $v(r) = (-y, x, 0)$ für $r = (x,y,z) \in \R^3$. Sei $R \in (0, \infty)$ und $K(R)$ der konzentrische Kreis mit Radius $R$ in der Ebene $z = 0$. Der Rand von $K(R)$ wird von der Kurve
+Gegeben ist das Vektorfeld $v(r) = (-y, x, 0)$ für $r = (x,y,z) \in \R^3$. Sei $R \in (0, \infty)$ und $K(R)$ der konzentrische Kreis mit Radius $R$ in der Ebene $z = 0$. Der Rand von $K(R)$ wird von der Kurve
 \[ \gamma_R : [0, 2\pi) \longto \R^3, \; \ph \longmapsto R (\cos\ph, \sin\ph, 0) \]
 ``gegen den Urzeigersinn umfahren''. Es gilt
 \[ \oint_{\gamma_R} v(r) \cdot dr = R^2 \int_0^{2\pi} (-\sin\ph, \cos\ph, 0) \cdot (-\sin\ph, \cos\ph, 0) d\ph = R^2 \int_0^{2\pi} \sin^2 \ph + \cos^2 \ph d\ph = 2\pi R^2 \]
 und $\rot v(r) = (0,0,2)$.
 
+\begin{tikzpicture}
+\begin{axis}[
+	title={Azimutales Geschwindigkeitsfeld},
+	view={0}{90},
+	axis equal,
+	domain=-2:2,
+	ymin=-1, ymax=1,
+	xmin=-1, xmax=1,
+	%xlabel=$x$, ylabel=$y$,
+	]
+	\addplot3[black,
+		quiver={u={-y}, v={x}, scale arrows=0.2},
+		-stealth,
+		samples=20] {0};
+		
+%	\addplot3[red, samples=50, domain=0:2*pi]
+%		({cos(deg(x))}, {sin(deg(x))}, 0);
+
+\end{axis}
+\end{tikzpicture}
 
 \section{Linienintegral}
-Gegeben ist das Vektorfeld $f(x,y,z) = xyz(1,1,1)$. Wir berechnen nun das Integral $\int_\gamma f(r) dr$ für verschiedene Kurven $\gamma$.
+Gegeben ist das Vektorfeld $f(x,y,z) = xyz(1,1,1)$. Wir berechnen nun das Integral $\int_\gamma f(r) \cdot dr$ für verschiedene Kurven $\gamma$.
 \begin{enumerate}[label = \alph*)]
 \item Definiere zunächst $\gamma_i : [0,1] \longto \R^3$ für $i \in \{1,\dots, 3\}$ durch
 \[ \gamma_1(t) = (t,0,0), \qquad \gamma_2(t) = (1,t,0), \qquad \gamma_3(t) = (1,1,t). \]
@@ -178,6 +251,5 @@ Dann gilt
 \end{enumerate}
 
 Außerdem gilt $\rot f(x,y,z) = \begin{pmatrix} xz - xy \\ xy - yz \\ yz - xz \end{pmatrix}$.
-
 
 \end{document}
