@@ -252,4 +252,18 @@ Dann gilt
 
 Außerdem gilt $\rot f(x,y,z) = \begin{pmatrix} xz - xy \\ xy - yz \\ yz - xz \end{pmatrix}$.
 
+\begin{tikzpicture}
+\begin{axis}[
+	domain = -3:3,
+	xmin=-2, xmax=2,
+	ymin=-2, ymax=2,
+	view = {55}{60},
+]
+	\addplot3[black,
+		quiver={u={x*y*z}, v={x*y*z}, w={x*y*z}, scale arrows = 0.3},
+		-stealth, samples = 20] {1};
+\end{axis}	
+\end{tikzpicture}
+
+
 \end{document}
