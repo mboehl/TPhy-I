@@ -86,6 +86,7 @@
 
 \newcommand{\ep}{\varepsilon}
 \newcommand{\ph}{\varphi}
+\renewcommand{\th}{\vartheta}
 \newcommand{\longto}{\longrightarrow}
 \DeclareMathOperator{\kgV}{\mathrm{kgV}}
 \DeclareMathOperator{\ggT}{\mathrm{ggT}}
@@ -99,7 +100,7 @@
 
 % fancy head/foot
 \usepackage{fancyhdr}
-\fancyhead[R]{M. Böhl, A. Kanz, R. Müller, M. Nietschmann, M. Noatsch}
+\fancyhead[R]{M. Böhl, A. Kanz, R. Müller, M. Nietschmann}
 \fancyhead[L]{}
 
 
@@ -113,7 +114,7 @@
 \end{center}
 
 \rule{\textwidth}{.5pt}
-\text{} \hfill M. Böhl, A. Kanz, R. Müller, M. Nietschmann, M. Noatsch
+\text{} \hfill M. Böhl, A. Kanz, R. Müller, M. Nietschmann
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -124,9 +125,44 @@
 
 
 \section{Flussintegral bei radialer Strömung}
+Gegeben ist das Vektorfeld $v(\vec r) = \frac{c}{r^3} \vec r$ für $\vec r \in \R^3$ mit $r = ||\vec r ||$ und $c \in \R$.
+
+Um den Fluss durch die Konzentrische Kugel $K$ mit Radius $R$ zu berechnen, parametrisieren wir $\partial K$ wie üblich durch 
+\[ f: [0, \pi) \times [0, 2\pi) \longrightarrow \R^3, \; (\th, \ph) \longmapsto R \begin{pmatrix}
+\sin\th \cos\ph \\ \sin\th \sin \ph \\ \cos\th
+\end{pmatrix}. \]
+Dann folgt
+\[ f_\th = \partial_\th f(\th, \ph) = R \begin{pmatrix}
+\cos\th \cos\ph \\ \cos\th \sin\ph \\ -\sin\th
+\end{pmatrix}, 
+\qquad f_\ph = \partial_\ph f(\th, \ph) = R \begin{pmatrix}
+-\sin\th \sin\ph \\ \sin\th \cos\ph \\ 0
+\end{pmatrix} \]
+und damit
+\[ f_\th \times f_\ph = R^2 \begin{pmatrix}
+\sin^2 \th \cos\ph \\ \sin^2 \th \sin\ph \\ \cos\th \sin\th(\sin^2 \ph + \cos^2 \ph)
+\end{pmatrix}
+= R^2 \sin\th \begin{pmatrix}
+\sin\th \cos\ph \\ \sin\th \sin \ph \\ \cos\th
+\end{pmatrix}. \]
+Nun zur Berechnung des Flusses durch $K$:
+\begin{align*}
+\int_K \div \vec v dV &= \int_{\partial K} \vec v \cdot d\vec a \\
+&= \int_{0}^{2\pi} \int_{0}^{\pi} \vec v(f(\th, \ph)) \cdot (f_\th \times f_\ph) d\th d\phi\\
+&= \int_{0}^{2\pi} \int_{0}^{\pi} \frac{c}{R^2} \begin{pmatrix}
+\sin\th \cos\ph \\ \sin\th \sin \ph \\ \cos\th
+\end{pmatrix} \cdot \begin{pmatrix}
+\sin\th \cos\ph \\ \sin\th \sin \ph \\ \cos\th
+\end{pmatrix} R^2 \sin\th d\th d\ph \\
+&= c \int_{0}^{2\pi} \int_{0}^{\pi} \sin\th (\sin^2 \th \cos^2 \ph +  \sin^2 \th \sin^2 \ph + \cos^2 \th) d\th d\ph \\
+&= c \int_{0}^{2\pi} \int_{0}^{\pi} \sin\th d\th d\ph \\
+&= 2\pi c (-\cos\th\vert_0^\pi) = 0.
+\end{align*}
+
 
 \begin{tikzpicture}
 \begin{axis}[
+	title = {Vektorfeld $v(\vec r) = \frac{c}{r^3} \vec r$},
 	domain = -3:3,
 	xmin = -2, xmax = 2,
 	ymin = -2, ymax = 2,
@@ -186,20 +222,20 @@ Die Rotation berechnet sich als $\rot v(r) = (0,0,1)$.
 \end{axis}
 \end{tikzpicture}
 
-\begin{tikzpicture}
-\begin{axis}[
-	title={Scherströmung 2?}
-]
-%	\addplot[gray,
+%\begin{tikzpicture}
+%\begin{axis}[
+%	title={Scherströmung 2?}
+%]
+%%	\addplot[gray,
+%%		quiver={u=0, v=x},
+%%		-stealth] {-x};
+%	
+%	\addplot[black,
 %		quiver={u=0, v=x},
-%		-stealth] {-x};
-	
-	\addplot[black,
-		quiver={u=0, v=x},
-		-stealth] {0};
-
-\end{axis}		
-\end{tikzpicture}
+%		-stealth] {0};
+%
+%\end{axis}		
+%\end{tikzpicture}
 
 
 \section{Kurvenintegral eines azimutalen Geschwindigkeitsfeldes}
@@ -252,18 +288,18 @@ Dann gilt
 
 Außerdem gilt $\rot f(x,y,z) = \begin{pmatrix} xz - xy \\ xy - yz \\ yz - xz \end{pmatrix}$.
 
-\begin{tikzpicture}
-\begin{axis}[
-	domain = -3:3,
-	xmin=-2, xmax=2,
-	ymin=-2, ymax=2,
-	view = {55}{60},
-]
-	\addplot3[black,
-		quiver={u={x*y*z}, v={x*y*z}, w={x*y*z}, scale arrows = 0.3},
-		-stealth, samples = 20] {1};
-\end{axis}	
-\end{tikzpicture}
+%\begin{tikzpicture}
+%\begin{axis}[
+%	domain = -3:3,
+%	xmin=-2, xmax=2,
+%	ymin=-2, ymax=2,
+%	view = {55}{60},
+%]
+%	\addplot3[black,
+%		quiver={u={x*y*z}, v={x*y*z}, w={x*y*z}, scale arrows = 0.3},
+%		-stealth, samples = 20] {1};
+%\end{axis}	
+%\end{tikzpicture}
 
 
 \end{document}
